@@ -16,15 +16,12 @@ public class DecomporNumeroController : ControllerBase
         }
 
     [HttpPost("{numero}")]
-    public async Task<IActionResult> Post(int numero)
+    public IActionResult Post(int numero)
     {
         try
         {
-            var t1 = Task.Run(() => _decomporNumeroService.Decompor(numero));
 
-            await Task.WhenAll(t1);
-
-            var resultado = t1.Result;
+            var resultado = _decomporNumeroService.Decompor(numero);
 
             if (resultado == null) return BadRequest("Erro ao tentar decompor numero.");
 
