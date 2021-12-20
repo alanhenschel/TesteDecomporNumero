@@ -1,7 +1,9 @@
+using Decompor.Application.Dtos;
+
 namespace Decompor.Application.interfaces
 {
     public interface IDecomporNumeroService
     {
-        Task<int[]> Decompor();       
+        NumeroDto Decompor(int numero);       
     }
 }
